@@ -52,7 +52,7 @@ const DropDown = ({ toggle }) => {
   );
 };
 
-const Search = () => {
+const Search = ({ Query, onQueryChange }) => {
   const [toggleSort, setToggleSort] = useState(false);
 
   const handleToggleSort = () => {
@@ -69,7 +69,8 @@ const Search = () => {
           type="text"
           name="query"
           id="query"
-          value=""
+          value={Query}
+          onChange={onQueryChange}
           className="p-8 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-x border-gray-300 h-5"
           placeholder="Search"
         />
