@@ -4,8 +4,10 @@ import AddAppointment from "./components/AddAppointment";
 import { useEffect, useState } from "react";
 
 const App = () => {
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
   const [appointmentList, setAppointmentList] = useState([]);
+  const [sortBy, setSortBy] = useState("petName");
+  const [sortOrder, setSortOrder] = useState("asc");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -25,19 +27,25 @@ const App = () => {
     );
   };
 
-  const filteredAppointment = 
-    appointmentList.filter((item) => {
+  const filteredAppointment = appointmentList
+    .filter((item) => {
       return (
         item.petName.toLowerCase().includes(query.toLowerCase()) ||
         item.aptNotes.toLowerCase().includes(query.toLowerCase()) ||
         item.aptDate.toLowerCase().includes(query.toLowerCase()) ||
         item.ownerName.toLowerCase().includes(query.toLowerCase())
-      )
+      );
     })
+    .sort((a, b) => {
+      const order = sortOrder === "asc" ? 1 : -1;
+      return a[sortBy].toLowerCase() < b[sortBy].toLowerCase()
+        ? -1 * order
+        : 1 * order;
+    });
 
   const changeQuery = (event) => {
-    setQuery(event.target.value)
-  }
+    setQuery(event.target.value);
+  };
 
   return (
     <div className="App container mx-auto mt-3 font-thin">
@@ -46,7 +54,14 @@ const App = () => {
         Appointment
       </h1>
       <AddAppointment />
-      <Search Query={query} onQueryChange={changeQuery}/>
+      <Search
+        Query={query}
+        onQueryChange={changeQuery}
+        sortBy
+        sortOrder
+        onSortOrder={(mySort) => setSortOrder(mySort)}
+        onSortBy={(mySort) => setSortBy(mySort)}
+      />
       <ul className="divide-y divide-gray-300">
         {filteredAppointment.map((appoint) => (
           <li key={appoint.id} className="px-3 py-3 flex items-start">
