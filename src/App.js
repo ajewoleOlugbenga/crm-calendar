@@ -1,9 +1,34 @@
 import { BiAddToQueue, BiTrash } from "react-icons/bi";
 import Search from "./components/Search";
 import AddAppointment from "./components/AddAppointment";
-import Appointment from "./components/data.json";
+import { useEffect, useState } from "react";
 
 const App = () => {
+  const [query, setQuery] = useState("")
+  const [appointmentList, setAppointmentList] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch("./data.json")
+      .then((response) => response.json())
+      .then((data) => setAppointmentList(data));
+    setLoading(false);
+  }, []);
+  if (loading) {
+    <div class="loader"></div>;
+  }
+
+  const onDeleteAppointmentList = (appointmentId) => {
+    setAppointmentList((prevList) =>
+      prevList.filter((appoint) => appoint.id !== appointmentId)
+    );
+  };
+
+  const changeQuery = (event) => {
+    setQuery(event.target.value)
+  }
+
   return (
     <div className="App container mx-auto mt-3 font-thin">
       <h1 className="text-5xl mb-5">
@@ -11,16 +36,17 @@ const App = () => {
         Appointment
       </h1>
       <AddAppointment />
-      <Search />
+      <Search Query={query} onQueryChange={changeQuery}/>
       <ul className="divide-y divide-gray-300">
-        {Appointment.map((appoint) => (
+        {appointmentList.map((appoint) => (
           <li key={appoint.id} className="px-3 py-3 flex items-start">
             <button
+              onClick={() => onDeleteAppointmentList(appoint.id)}
               type="button"
               className="p-1.5 mr-1.5 mt-1 rounded text-white bg-red-500 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               <BiTrash />
-            </button>x
+            </button>
             <div className="flex-grow">
               <div className="flex items-center">
                 <span className="flex-none font-medium text-2xl text-blue-500">
