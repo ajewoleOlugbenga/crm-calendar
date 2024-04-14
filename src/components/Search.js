@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BiSearch, BiCaretDown, BiCheck } from "react-icons/bi";
 
-const DropDown = ({ toggle }) => {
+const DropDown = ({ toggle, sortBy, sortOrder, onSortBy, onSortOrder }) => {
   return (
     <>
       {toggle ? (
@@ -15,35 +15,35 @@ const DropDown = ({ toggle }) => {
             aria-orientation="vertical"
             aria-labelledby="options-menu"
           >
-            <div
+            <div onClick={()=>onSortBy("petName")}
               className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
               role="menuitem"
             >
-              Pet Name <BiCheck />
+              Pet Name {(sortBy === "petName") && <BiCheck />}
             </div>
-            <div
+            <div onClick={()=>onSortBy("ownerName")}
               className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
               role="menuitem"
             >
-              Owner Name <BiCheck />
+              Owner Name {(sortBy === "ownerName") && <BiCheck />}
             </div>
-            <div
+            <div onClick={()=>onSortBy("aptDate")}
               className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
               role="menuitem"
             >
-              Date <BiCheck />
+              Date {(sortBy === "aptDate") && <BiCheck />}
             </div>
-            <div
+            <div onClick={()=>onSortOrder("asc")}
               className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer border-gray-1 border-t-2"
               role="menuitem"
             >
-              Asc <BiCheck />
+              Asc {(sortOrder === "asc") && <BiCheck />}
             </div>
-            <div
+            <div onClick={()=>onSortOrder("desc")}
               className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
               role="menuitem"
             >
-              Desc <BiCheck />
+              Desc {(sortOrder === "desc") && <BiCheck />}
             </div>
           </div>
         </div>
@@ -52,7 +52,14 @@ const DropDown = ({ toggle }) => {
   );
 };
 
-const Search = ({ Query, onQueryChange }) => {
+const Search = ({
+  Query,
+  onQueryChange,
+  sortBy,
+  sortOrder,
+  onSortBy,
+  onSortOrder,
+}) => {
   const [toggleSort, setToggleSort] = useState(false);
 
   const handleToggleSort = () => {
@@ -86,7 +93,13 @@ const Search = ({ Query, onQueryChange }) => {
             >
               Sort By <BiCaretDown className="ml-2" />
             </button>
-            <DropDown toggle={toggleSort} />
+            <DropDown
+              toggle={toggleSort}
+              sortBy={sortBy}
+              sortOrder={sortOrder}
+              onSortBy={(mySort) => onSortBy(mySort)}
+              onSortOrder={(mySortOrder) => onSortOrder(mySortOrder)}
+            />
           </div>
         </div>
       </div>
