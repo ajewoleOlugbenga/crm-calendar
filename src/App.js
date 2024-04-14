@@ -25,6 +25,16 @@ const App = () => {
     );
   };
 
+  const filteredAppointment = 
+    appointmentList.filter((item) => {
+      return (
+        item.petName.toLowerCase().includes(query.toLowerCase()) ||
+        item.aptNotes.toLowerCase().includes(query.toLowerCase()) ||
+        item.aptDate.toLowerCase().includes(query.toLowerCase()) ||
+        item.ownerName.toLowerCase().includes(query.toLowerCase())
+      )
+    })
+
   const changeQuery = (event) => {
     setQuery(event.target.value)
   }
@@ -38,7 +48,7 @@ const App = () => {
       <AddAppointment />
       <Search Query={query} onQueryChange={changeQuery}/>
       <ul className="divide-y divide-gray-300">
-        {appointmentList.map((appoint) => (
+        {filteredAppointment.map((appoint) => (
           <li key={appoint.id} className="px-3 py-3 flex items-start">
             <button
               onClick={() => onDeleteAppointmentList(appoint.id)}
