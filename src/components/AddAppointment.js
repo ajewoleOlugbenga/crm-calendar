@@ -9,7 +9,7 @@ const Data = {
   aptNote: "",
 };
 
-const AddAppointment = () => {
+const AddAppointment = ({ onSendAppointment, lastID }) => {
   const [toggleForm, setToggleForm] = useState(false);
   const [formData, setFormData] = useState(Data);
 
