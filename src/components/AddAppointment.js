@@ -19,7 +19,7 @@ const AddAppointment = ({ onSendAppointment, lastID }) => {
       ownerName: formData.ownerName,
       petName: formData.petName,
       aptDate: formData.aptDate + " " + formData.aptTime,
-      aptNote: formData.aptNotes,
+      aptNotes: formData.aptNotes,
     };
     onSendAppointment(appointmentInfo);
     setFormData(Data);
