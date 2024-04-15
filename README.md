@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Appointment Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an appointment management system built with React. It allows users to add, search, and delete appointments. The system also includes sorting functionality to sort appointments by pet name, owner name, and appointment date.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Add new appointments with owner name, pet name, appointment date, and notes.
+- Search appointments by pet name, owner name, appointment date, and notes.
+- Delete appointments.
+- Sort appointments by pet name, owner name, and appointment date in ascending or descending order.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To run this project locally, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ajewoleOlugbenga/crm-calendar
 
-### `npm test`
+##Navigate to the project directory:
+bash
+Copy code
+cd crm-calendar
+Install dependencies:
+bash
+Copy code
+npm install
+Start the development server:
+bash
+Copy code
+npm start
+Open http://localhost:3000 to view the app in your browser.
+##Usage
+To add a new appointment, click the "Add Appointment" button and fill out the form.
+Use the search bar to filter appointments based on pet name, owner name, appointment date, and notes.
+Click the trash icon next to an appointment to delete it.
+Click the "Sort By" button to sort appointments by pet name, owner name, or appointment date in ascending or descending order.
+##Technologies Used
+React
+React Icons
+Tailwind CSS
+## Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Appointment Management System Screenshot](screenshots/Screenshot (128).png)
+![Appointment Management System Screenshot](screenshots/Screenshot (130).png)
+![Appointment Management System Screenshot](screenshots/Screenshot (132).png)
+![Appointment Management System Screenshot](screenshots/Screenshot (133).png)
+![Appointment Management System Screenshot](screenshots/Screenshot (134).png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
