@@ -41,10 +41,10 @@ React Icons
 Tailwind CSS
 ## Screenshots
 
-![Appointment Management System Screenshot](screenshots/Screenshot (128).png)
-![Appointment Management System Screenshot](screenshots/Screenshot (130).png)
-![Appointment Management System Screenshot](screenshots/Screenshot (132).png)
-![Appointment Management System Screenshot](screenshots/Screenshot (133).png)
-![Appointment Management System Screenshot](screenshots/Screenshot (134).png)
+![Appointment Management System Screenshot](screenshots/Screenshot1.png)
+![Appointment Management System Screenshot](screenshots/Screenshot(130).png)
+![Appointment Management System Screenshot](screenshots/Screenshot(132).png)
+![Appointment Management System Screenshot](screenshots/Screenshot(133).png)
+![Appointment Management System Screenshot](screenshots/Screenshot(134).png)
 
 
