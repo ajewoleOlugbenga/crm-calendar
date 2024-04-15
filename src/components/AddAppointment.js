@@ -13,6 +13,19 @@ const AddAppointment = () => {
   const [toggleForm, setToggleForm] = useState(false);
   const [formData, setFormData] = useState(Data);
 
+  const formDataPublish = () => {
+    const appointmentInfo = {
+      id: lastID + 1,
+      ownerName: formData.ownerName,
+      petName: formData.petName,
+      aptDate: formData.aptDate + " " + formData.aptTime,
+      aptNote: formData.aptNote,
+    };
+    onSendAppointment(appointmentInfo);
+    setFormData(Data);
+    setToggleForm(!toggleForm);
+  };
+
   const handleToggleForm = () => {
     setToggleForm(!toggleForm);
   };
@@ -41,6 +54,10 @@ const AddAppointment = () => {
             </label>
             <div className="mt-1 sm:mt-0 sm:col-span-2">
               <input
+                onChange={(event) => {
+                  setFormData({ ...formData, ownerName: event.target.value });
+                }}
+                value={formData.ownerName}
                 type="text"
                 name="ownerName"
                 id="ownerName"
@@ -58,6 +75,10 @@ const AddAppointment = () => {
             </label>
             <div className="mt-1 sm:mt-0 sm:col-span-2">
               <input
+                onChange={(event) => {
+                  setFormData({ ...formData, petName: event.target.value });
+                }}
+                value={formData.petName}
                 type="text"
                 name="petName"
                 id="petName"
@@ -75,6 +96,10 @@ const AddAppointment = () => {
             </label>
             <div className="mt-1 sm:mt-0 sm:col-span-2">
               <input
+                onChange={(event) => {
+                  setFormData({ ...formData, aptDate: event.target.value });
+                }}
+                value={formData.aptDate}
                 type="date"
                 name="aptDate"
                 id="aptDate"
@@ -92,6 +117,10 @@ const AddAppointment = () => {
             </label>
             <div className="mt-1 sm:mt-0 sm:col-span-2">
               <input
+                onChange={(event) => {
+                  setFormData({ ...formData, aptTime: event.target.value });
+                }}
+                value={formData.aptTime}
                 type="time"
                 name="aptTime"
                 id="aptTime"
@@ -109,6 +138,10 @@ const AddAppointment = () => {
             </label>
             <div className="mt-1 sm:mt-0 sm:col-span-2">
               <textarea
+                onChange={(event) => {
+                  setFormData({ ...formData, aptNote: event.target.value });
+                }}
+                value={formData.aptNote}
                 id="aptNotes"
                 name="aptNotes"
                 rows="3"
@@ -121,6 +154,7 @@ const AddAppointment = () => {
           <div className="pt-5">
             <div className="flex justify-end">
               <button
+                onClick={formDataPublish}
                 type="submit"
                 className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-400 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
               >
