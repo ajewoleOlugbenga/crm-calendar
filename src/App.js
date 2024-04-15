@@ -57,7 +57,7 @@ const App = () => {
         onSendAppointment={(myAppointment) => {
           setAppointmentList([...appointmentList, myAppointment]);
         }}
-        lastID={appointmentList.reduce(
+        lastId={appointmentList.reduce(
           (max, item) => (Number(item.id) > max ? Number(item.id) : max),
           0
         )}

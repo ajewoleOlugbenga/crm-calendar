@@ -9,13 +9,13 @@ const Data = {
   aptNotes: "",
 };
 
-const AddAppointment = ({ onSendAppointment, lastID }) => {
+const AddAppointment = ({ onSendAppointment, lastId }) => {
   const [toggleForm, setToggleForm] = useState(false);
   const [formData, setFormData] = useState(Data);
 
   const formDataPublish = () => {
     const appointmentInfo = {
-      id: lastID + 1,
+      id: lastId + 1,
       ownerName: formData.ownerName,
       petName: formData.petName,
       aptDate: formData.aptDate + " " + formData.aptTime,
