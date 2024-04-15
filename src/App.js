@@ -53,7 +53,15 @@ const App = () => {
         <BiAddToQueue className="inline-block text-red-400 align-top" /> Your
         Appointment
       </h1>
-      <AddAppointment />
+      <AddAppointment
+        onSendAppointment={(myAppointment) => {
+          setAppointmentList([...appointmentList, myAppointment]);
+        }}
+        lastID={appointmentList.reduce(
+          (max, item) => (Number(item.id) > max ? Number(item.id) : max),
+          0
+        )}
+      />
       <Search
         Query={query}
         onQueryChange={changeQuery}
