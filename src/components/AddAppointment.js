@@ -6,7 +6,7 @@ const Data = {
   petName: "",
   aptDate: "",
   aptTime: "",
-  aptNote: "",
+  aptNotes: "",
 };
 
 const AddAppointment = ({ onSendAppointment, lastID }) => {
@@ -19,7 +19,7 @@ const AddAppointment = ({ onSendAppointment, lastID }) => {
       ownerName: formData.ownerName,
       petName: formData.petName,
       aptDate: formData.aptDate + " " + formData.aptTime,
-      aptNote: formData.aptNote,
+      aptNote: formData.aptNotes,
     };
     onSendAppointment(appointmentInfo);
     setFormData(Data);
@@ -139,9 +139,9 @@ const AddAppointment = ({ onSendAppointment, lastID }) => {
             <div className="mt-1 sm:mt-0 sm:col-span-2">
               <textarea
                 onChange={(event) => {
-                  setFormData({ ...formData, aptNote: event.target.value });
+                  setFormData({ ...formData, aptNotes: event.target.value });
                 }}
-                value={formData.aptNote}
+                value={formData.aptNotes}
                 id="aptNotes"
                 name="aptNotes"
                 rows="3"
